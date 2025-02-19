@@ -1,0 +1,18 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+
+    // Send a message to the backend
+    document.getElementById('sendMessage').onclick = () => {
+        const message = document.getElementById('messageInput').value;
+        socket.emit('chatMessage', message);
+    };
+
+    // Listen for incoming chat messages
+    socket.on('chatMessage', (msg) => {
+        const chatWindow = document.getElementById('chatWindow');
+        const messageDiv = document.createElement('div');
+        messageDiv.textContent = msg;
+        chatWindow.appendChild(messageDiv);
+    });
+</script>
