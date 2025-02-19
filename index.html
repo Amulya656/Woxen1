@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Swap Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="title-page" id="titlePage">
+        Welcome to Skill Swap
+        <div class="subtitle">Let's barter our skills</div>
+    </div>
+
+    <div class="container hidden" id="authSelectionPage">
+        <h2>Login</h2>
+        <input type="text" id="loginUserId" placeholder="User ID">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button class="login-btn" onclick="login()">Login</button>
+        <button class="google-btn" onclick="showGoogleVerification()">Sign in with Google</button>
+        <p onclick="showSignupPage()" style="color: blue; cursor: pointer; text-decoration: underline;">Create an
+            account</p>
+    </div>
+
+    <div class="container hidden" id="googleVerificationPage">
+        <h2>Google Verification</h2>
+        <input type="email" id="email" placeholder="Enter your email">
+        <button class="otp-btn" onclick="sendOTP()">Send OTP</button>
+    </div>
+
+    <div class="container hidden" id="otpPage">
+        <h2>Enter OTP</h2>
+        <input type="text" id="otp" placeholder="Enter OTP">
+        <button class="otp-btn" onclick="verifyOTP()">Verify</button>
+    </div>
+
+    <div class="container hidden" id="homePage">
+        <h2>Enter Your Top 5 Skills</h2>
+        <input type="text" id="skillsInput" placeholder="Enter skills separated by commas">
+        <p class="skills-input-error hidden" id="skillsError">Max 5 skills allowed.</p>
+        <button class="login-btn" onclick="validateSkills()">Next</button>
+    </div>
+
+    <div class="container hidden" id="interestedSkillsPage">
+        <h2>Select Up to 3 Skills to Learn</h2>
+        <input type="text" id="interestedSkillsInput" placeholder="Enter up to 3 skills separated by commas">
+        <p class="skills-input-error hidden" id="interestedSkillsError">Max 3 skills allowed.</p>
+        <button class="login-btn" onclick="finishSetup()">Finish</button>
+    </div>
+
+    <div id="matchResults"></div>
+
+    <h2>Chat</h2>
+    <div id="chatWindow"></div>
+    <input id="messageInput" placeholder="Type a message">
+    <button id="sendMessage">Send Message</button>
+
+    <h2>Audio/Video Call</h2>
+    <button id="audioCall">Start Audio Call</button>
+    <button id="videoCall">Start Video Call</button>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
